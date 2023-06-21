@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: experation-redis-depl
+  labels:
+    app: experation-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: experation-redis
+  template:
+    metadata:
+      labels:
+        app: experation-redis
+    spec:
+      containers:
+        - name: experation-redis
+          image: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: experation-redis-service
+spec:
+  selector:
+    app: experation-redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379

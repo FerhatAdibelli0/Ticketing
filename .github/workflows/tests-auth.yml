@@ -2,7 +2,7 @@ name: tests-auth
 on:
   pull_request:
     paths:
-      - "Ticketing/auth/**"
+      - "./Ticketing/auth/**"
 jobs:
   build:
     runs-on: ubuntu-latest

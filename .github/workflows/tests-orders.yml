@@ -2,7 +2,7 @@ name: tests-orders
 on:
   pull_request:
     paths:
-      - "Ticketing/orders/**"
+      - "./Ticketing/orders/**"
 jobs:
   build:
     runs-on: ubuntu-latest

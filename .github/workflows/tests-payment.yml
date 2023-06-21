@@ -1,1 +1,14 @@
-
+name: tests-payment
+on:
+  pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies and run tests
+        working-directory: ./Ticketing/payment
+        run: |
+          npm install
+          npm run test:ci

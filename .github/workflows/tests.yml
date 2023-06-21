@@ -1,10 +1,14 @@
 name: tests
-
-on: 
-    pull_request
+on:
+  pull_request
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps: 
-          - uses: actions/checkout
-          - run: cd Ticketing && cd auth && npm install && npm run test:ci
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies and run tests
+        working-directory: ./Ticketing/auth
+        run: |
+          npm install
+          npm run test:ci
